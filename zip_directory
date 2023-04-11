@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Check if the user has provided a directory path as an argument
+if [ -z "$1" ]; then
+    echo "Usage: $0 /path/to/directory"
+    exit 1
+fi
+
+# Check if the provided path is a directory
+if [ ! -d "$1" ]; then
+    echo "Error: $1 is not a directory"
+    exit 1
+fi
+
+# Navigate to the target directory
+cd "$1"
+
+# Get the name of the current directory
+dir_name="$(basename "$(pwd)")"
+
+# Create the zip archive
+zip -r "${dir_name}.zip" *
+
+echo "Directory $1 has been compressed into ${dir_name}.zip"
+

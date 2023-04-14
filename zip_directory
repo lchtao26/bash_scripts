@@ -23,3 +23,6 @@ zip -r "${dir_name}.zip" *
 
 echo "Directory $1 has been compressed into ${dir_name}.zip"
 
+mv "${dir_name}.zip" ../
+
+cd ../
